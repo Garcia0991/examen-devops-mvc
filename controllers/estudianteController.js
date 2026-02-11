@@ -36,10 +36,22 @@ const actualizarEstudiante = (req, res) => {
 
   res.status(200).json({ mensaje: "Estudiante actualizado correctamente" });
 };
+const eliminarEstudiante = (req, res) => {
+  const { id } = req.params;
+
+  if (!estudianteModel.existeEstudiante(id)) {
+    return res.status(404).json({ mensaje: "Estudiante no encontrado" });
+  }
+
+  estudianteModel.eliminarEstudiante(id);
+
+  res.status(200).json({ mensaje: "Estudiante eliminado correctamente" });
+};
 
 module.exports = {
   listarEstudiantes,
   registrarEstudiante,
-  actualizarEstudiante
-
+  actualizarEstudiante,
+  eliminarEstudiante
 };
+
