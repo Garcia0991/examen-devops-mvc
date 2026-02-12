@@ -11,9 +11,17 @@ const agregarEstudiante = (estudiante) => {
 const existeEstudiante = (id) => {
   return estudiantes.some(est => est.id === id);
 };
+const eliminarEstudiante = (id) => {
+  estudiantes = estudiantes.filter(est => est.id !== id);
+};
 
 module.exports = {
   obtenerEstudiantes,
   agregarEstudiante,
-  existeEstudiante
+  existeEstudiante,
+  eliminarEstudiante
+
 };
+
+
+
